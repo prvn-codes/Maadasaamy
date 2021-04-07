@@ -33,6 +33,8 @@ client.on("message", message =>{
         client.commands.get('ping').execute(message,args);
     }else if(command == 'changevc'){
         client.commands.get('changevc').execute(message,args);
+    }else if(command == 'iplstart'){
+        client.commands.get('iplstart').execute(message,args);
     }
 
 
