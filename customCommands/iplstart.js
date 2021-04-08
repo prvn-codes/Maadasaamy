@@ -33,17 +33,24 @@ module.exports = {
         'RR vs. SRH',
         'PBKS vs. DC',
         'KKR vs. RCB'];
-        
-        for(let i = 0 ; i< 100000*match.length; i++){
-            if(i%100000 == 0){
-                if(message.member.roles.cache.some(r => r.name === 'ad')){
-                    message.guild.channels.cache.get("776825148141207597").setName(match[i/100000]);
-                    message.channel.send(match[i/100000]);
-                } else{
-                    message.channel.send('you don\'t have permission');
+
+        var i = 0;
+        var interval = 60000;
+
+        setInterval(() => {
+            if(message.member.roles.cache.some(r => r.name === 'ad')){
+                message.guild.channels.cache.get("776825148141207597").setName(match[i]);
+                message.channel.send(match[i]);
+                i++;
+                if(i == 10 || i == 14 || i == 19 || i == 24 || i == 28){
+                    interval = interval/2;
+                }else{
+                    interval = 60000;
                 }
+            } else{
+                message.channel.send('you don\'t have permission');
             }
-        }
+        },interval);       
     }
 
 }
