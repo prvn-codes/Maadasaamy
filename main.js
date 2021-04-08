@@ -21,6 +21,12 @@ client.once('ready', ()=> {
     console.log('Maadasaamy is online');
 });
 
+const keepAlive = require('./server.js');
+keepAlive();
+
+client.on("ready", () => {
+    client.user.setActivity("Coded by Bunny°#0128", { type: "PLAYING", url: 'https://www.discordapp.com/users/586862321922605076'})
+});
 
 client.on("message", message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;

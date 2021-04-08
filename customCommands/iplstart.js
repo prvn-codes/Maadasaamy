@@ -39,7 +39,7 @@ module.exports = {
 
         setInterval(() => {
             if(message.member.roles.cache.some(r => r.name === 'ad')){
-                message.guild.channels.cache.get("776825148141207597").setName(match[i]);
+                message.guild.channels.cache.get("827076598859038751").setName(match[i]);
                 message.channel.send(match[i]);
                 i++;
                 if(i == 10 || i == 14 || i == 19 || i == 24 || i == 28){
