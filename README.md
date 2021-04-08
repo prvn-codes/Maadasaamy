@@ -2,9 +2,9 @@
 
 A custom discord bot for self purpose. Developed using JavaScript and Node JS.
 
-## Packages used
-	node.js
-	discord.js
+## Modules used
+	Node.js (JavaScript runtime environment)
+	discord.js (discord.js is a powerful node.js module that allows you to interact with the Discord API)
 	
 
 ## To create a Custom Command
