@@ -1,3 +1,4 @@
+
 const Discord = require('discord.js');
 
 const client = new Discord.Client();
@@ -36,11 +37,15 @@ client.on("message", message =>{
     const command = args.shift().toLowerCase();
 
     if(command == 'ping'){
+        console.log('calling ping');
         client.commands.get('ping').execute(message,args);
     }else if(command == 'changevc'){
+        console.log('calling changevc');
         client.commands.get('changevc').execute(message,args);
     }else if(command == 'iplstart'){
+        console.log('calling iplstart');
         client.commands.get('iplstart').execute(message,args);
+        
     }
 
 
@@ -60,4 +65,4 @@ client.on("message", message =>{
 
 
 
-client.login('ODI5Mjc0MjY0Njc3OTA4NTMw.YG1v1w.gjL570f5ckOl0QdHhL9rckKDSIA');
+client.login('ODI5Mjc0MjY0Njc3OTA4NTMw.YG1v1w.9n1DKqPaJNIfD2jaRtrzzcjMy8w');

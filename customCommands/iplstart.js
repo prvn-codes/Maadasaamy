@@ -1,56 +1,138 @@
 module.exports = {
-    name: 'iplstart',
-    description: 'changes voice channel name for ipl season',
-    execute(message,args){
+  name: 'iplstart',
+  description: 'changes voice channel name for ipl season',
+  execute(message,args){
+    var match = ['ipl schedule started',
+    'MI vs RCB',
+    'CSK vs DC',
+    'SRH vs KKR',
+    'RR vs PBKS',
+    'KKR vs MI',
+    'SRH vs RCB',
+    'RR vs DC',
+    'PBKS vs CSK',
+    'MI vs SRH',
+    'RCB vs KKR',
+    'DC vs PBKS',
+    'CSK vs RR',
+    'DC vs MI',
+    'PBKS vs SRH',
+    'KKR vs CSK',
+    'RCB vs RR',
+    'PBKS vs MI',
+    'RR vs KKR',
+    'CSK vs RCB',
+    'SRH vs DC',
+    'PBKS vs KKR',
+    'DC vs RCB',
+    'CSK vs SRH',
+    'MI vs RR',
+    'DC vs KKR',
+    'PBKS vs RCB',
+    'MI vs CSK',
+    'RR vs SRH',
+    'PBKS vs DC',
+    'KKR vs RCB',
+    'SRH vs MI',
+    'RR vs CSK',
+    'RCB vs PBKS',
+    'SRH vs CSK',
+    'KKR vs DC',
+    'RR vs MI',
+    'CSK vs PBKS',
+    'RCB vs SRH',
+    'MI vs KKR',
+    'DC vs RR',
+    'CSK vs KKR',
+    'MI vs PBKS',
+    'SRH vs RR',
+    'RCB vs DC',
+    'KKR vs PBKS',
+    'RR vs RCB',
+    'CSK vs MI',
+    'DC vs SRH',
+    'KKR vs RR',
+    'SRH vs PBKS',
+    'RCB vs MI',
+    'KKR vs SRH',
+    'DC vs CSK',
+    'PBKS vs RR',
+    'MI vs DC',
+    'RCB vs CSK'];
 
-        var match = ['MI vs. RCB',
-        'CSK vs. DC',
-        'SRH vs. KKR',
-        'RR vs PBKS',
-        'KKR vs. MI',
-        'SRH vs. RCB',
-        'RR vs. DC',
-        'PBKS vs. CSK',
-        'MI vs. SRH',
-        'RCB vs. KKR',
-        'DC vs. PBKS',
-        'CSK vs. RR',
-        'DC vs. MI',
-        'PBKS vs. SRH',
-        'KKR vs. CSK',
-        'RCB vs. RR',
-        'PBKS vs MI',
-        'RR vs. KKR',
-        'CSK vs. RCB',
-        'SRH vs. DC',
-        'PBKS vs. KKR',
-        'DC vs. RCB',
-        'CSK vs SRH',
-        'MI vs. RR',
-        'DC vs. KKR',
-        'PBKS vs. RCB',
-        'MI vs. CSK',
-        'RR vs. SRH',
-        'PBKS vs. DC',
-        'KKR vs. RCB'];
+    var dates = [1617952500000,
+    1617976800000,
+    1618063200000,
+    1618149600000,
+    1618236000000,
+    1618322400000,
+    1618408800000,
+    1618495200000,
+    1618581600000,
+    1618668000000,
+    1618740000000,
+    1618754400000,
+    1618840800000,
+    1618927200000,
+    1618999200000,
+    1619013600000,
+    1619100000000,
+    1619186400000,
+    1619272800000,
+    1619344800000,
+    1619359200000,
+    1619445600000,
+    1619532000000,
+    1619618400000,
+    1619690400000,
+    1619704800000,
+    1619791200000,
+    1619877600000,
+    1619949600000,
+    1619964000000,
+    1620050400000,
+    1620136800000,
+    1620223200000,
+    1620309600000,
+    1620396000000,
+    1620468000000,
+    1620482400000,
+    1620554400000,
+    1620568800000,
+    1620655200000,
+    1620741600000,
+    1620828000000,
+    1620900000000,
+    1620914400000,
+    1621000800000,
+    1621087200000,
+    1621159200000,
+    1621173600000,
+    1621260000000,
+    1621346400000,
+    1621432800000,
+    1621519200000,
+    1621591200000,
+    1621605600000,
+    1621692000000,
+    1621764000000,
+    1621778400000];
+    
+    var i = 0;
 
-        var i = 0;
-        var interval = 60000;
+    message.channel.send("scheduling started");    
 
-        setInterval(() => {
-            if(message.member.roles.cache.some(r => r.name === 'ad')){
-                message.guild.channels.cache.get("827076598859038751").setName(match[i]);
-                message.channel.send(match[i]);
-                i++;
-                if(i == 10 || i == 14 || i == 19 || i == 24 || i == 28){
-                    interval = interval/2;
-                }else{
-                    interval = 60000;
-                }
-            } else{
-                message.channel.send('you don\'t have permission');
-            }
-        },interval);       
-    }
-
+    setInterval(()=>{
+      console.log(i);
+      if(dates[i] <= parseInt(Date.now())){
+        message.guild.channels.cache.get("827076598859038751").setName(match[i]);
+        if(i!=0){
+          message.channel.send("@everyone " + match[i] + ", Match starts in 30 minutes.");
+        }else {
+          message.channel.send(match[i] + ", Updates voice channel \' <#827076598859038751> \', 30 minutes before everymatch.");
+        }
+        i++;
+      }
+    },120000);     
+  }
 }
