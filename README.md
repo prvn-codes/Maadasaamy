@@ -14,3 +14,7 @@ A custom discord bot for self purpose. Developed using JavaScript and Node JS.
 
 ## Status
 uploaded on Replit IDE and connected with UptimeRobot for monitoring.
+
+.ping  => returns bot's and api's ping.
+.ccn <channel id> <new name>  => changes name of given channel.
+.iplstart  => starts ipl auto scheduling.

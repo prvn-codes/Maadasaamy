@@ -120,19 +120,21 @@ module.exports = {
     
     var i = 0;
 
-    message.channel.send("scheduling started");    
+    message.channel.send("ipl auto scheduling started");    
 
     setInterval(()=>{
       console.log(i);
-      if(dates[i] <= parseInt(Date.now())){
-        message.guild.channels.cache.get("827076598859038751").setName(match[i]);
+      if(dates[i] < parseInt(Date.now())){
         if(i!=0){
-          message.channel.send("@everyone " + match[i] + ", Match starts in 30 minutes.");
+          message.channel.send("@everyone " + match[i] + ", Match starts in few minutes.");
+          message.guild.channels.cache.get("827076598859038751").setName(match[i]);
+          i++;
         }else {
           message.channel.send(match[i] + ", Updates voice channel \' <#827076598859038751> \', 30 minutes before everymatch.");
+          i++;
         }
-        i++;
+        
       }
-    },120000);     
+    },60000);     
   }
 }
