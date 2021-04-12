@@ -32,9 +32,10 @@ client.on("ready", () => {
 
 client.on("message", message =>{
 
+    console.log("checking for url");
     client.commands.get('url_redirects').execute(message);
-
-    if(!message.content.startsWith(prefix) || message.author.bot ) {console.log("check prefix"); return;}
+    
+    if(!message.content.startsWith(prefix) || message.author.bot ) { return;}
 
     const args = message.content.slice(prefix.length).split(/ +/);
 
