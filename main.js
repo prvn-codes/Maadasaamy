@@ -6,6 +6,7 @@ const client = new Discord.Client();
 const prefix = '.';
 
 const fs = require('fs');
+const { url } = require('inspector');
 
 client.commands = new Discord.Collection();
 
@@ -30,7 +31,10 @@ client.on("ready", () => {
 });
 
 client.on("message", message =>{
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
+
+    client.commands.get('url_redirects').execute(message);
+
+    if(!message.content.startsWith(prefix) || message.author.bot ) {console.log("check prefix"); return;}
 
     const args = message.content.slice(prefix.length).split(/ +/);
 
@@ -38,7 +42,7 @@ client.on("message", message =>{
 
     if(command == 'ping'){
         console.log('calling ping');
-            message.channel.send(`**Pong 🏓** \nLatency : ${Date.now() - message.createdTimestamp}ms. \nAPI Latency : ${Math.round(client.ws.ping)}ms`);
+            message.channel.send(`**Pong 🏓** \nLatency : ${Date.now() - message.createdTimestamp}ms \nAPI Latency : ${Math.round(client.ws.ping)}ms`);
 
     }else if(command == 'ccn'){
         console.log('calling ccn');
@@ -48,7 +52,6 @@ client.on("message", message =>{
         client.commands.get('iplstart').execute(message,args);
         
     }
-
 
 });
 
