@@ -38,10 +38,11 @@ client.on("message", message =>{
 
     if(command == 'ping'){
         console.log('calling ping');
-        client.commands.get('ping').execute(message,args);
-    }else if(command == 'changevc'){
-        console.log('calling changevc');
-        client.commands.get('changevc').execute(message,args);
+            message.channel.send(`**Pong 🏓** \nLatency : ${Date.now() - message.createdTimestamp}ms. \nAPI Latency : ${Math.round(client.ws.ping)}ms`);
+
+    }else if(command == 'ccn'){
+        console.log('calling ccn');
+        client.commands.get('ccn').execute(message,args);
     }else if(command == 'iplstart'){
         console.log('calling iplstart');
         client.commands.get('iplstart').execute(message,args);
@@ -65,4 +66,4 @@ client.on("message", message =>{
 
 
 
-client.login('ODI5Mjc0MjY0Njc3OTA4NTMw.YG1v1w.9n1DKqPaJNIfD2jaRtrzzcjMy8w');
+client.login('');
