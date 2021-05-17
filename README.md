@@ -14,6 +14,7 @@ A custom discord bot for self purpose. Developed using JavaScript and Node JS.
 
 ## Status
 uploaded on Replit IDE and connected with UptimeRobot for monitoring.
+[status](https://Maadasaamy.prvncodes.repl.co)
 
 .ping  => returns bot's and api's ping.
 .ccn <channel id> <new name>  => changes name of given channel.
